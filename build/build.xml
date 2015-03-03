@@ -8,8 +8,8 @@
             password="${salesforce.password}${salesforce.securitytoken}"
             serverurl="${salesforce.serverurl}"
             deployRoot="src"
-            rollbackOnError="true">
-            <runTest>BookTestClass</runTest>
+            rollbackOnError="true"
+            runAllTests="true">
         </sf:deploy>
     </target>
 </project>
