@@ -1,5 +1,9 @@
 @isTest
 public class BookTestClass {
+
+    private static final Id m_dummyId = '120000000000000001';
+    private static final String m_dummyTitle = 'foo';
+    private static final String m_dummyDescription = 'bar';
     
     public static testmethod void Constructor_WithNullId_ShouldThrow() {
         try {
@@ -38,37 +42,31 @@ public class BookTestClass {
     }
 
     public static testmethod void UniqueId_Always_ShouldProperlyInitialized() {
-        final Id expected = '120000000000000001';
-        Book sut = new BookBuilder().withUniqueId(expected).build();
-        System.assertEquals(expected, sut.UniqueId);
+        Book sut = new BookBuilder().withUniqueId(m_dummyId).build();
+        System.assertEquals(m_dummyId, sut.UniqueId);
     }
 
     public static testmethod void Title_Always_ShouldProperlyInitialized() {
-        final String expected = 'foo';
-        Book sut = new BookBuilder().withTitle(expected).build();
-        System.assertEquals(expected, sut.Title);
+        Book sut = new BookBuilder().withTitle(m_dummyTitle).build();
+        System.assertEquals(m_dummyTitle, sut.Title);
     }
 
     public static testmethod void Description_Always_ShouldProperlyInitialized() {
-        final String expected = 'bar';
-        Book sut = new BookBuilder().withDescription(expected).build();
-        System.assertEquals(expected, sut.Description);
+        Book sut = new BookBuilder().withDescription(m_dummyDescription).build();
+        System.assertEquals(m_dummyDescription, sut.Description);
     }
 
     public static testmethod void ToString_Always_ShouldReturnExpectedResult() {
-        final Id expectedId = '120000000000000001';
-        final String expectedTitle = 'foo';
-        final String expectedDescription = 'bar';
         Book sut = new BookBuilder()
-            .withUniqueId(expectedId)
-            .withTitle(expectedTitle)
-            .withDescription(expectedDescription)
+            .withUniqueId(m_dummyId)
+            .withTitle(m_dummyTitle)
+            .withDescription(m_dummyDescription)
             .build();
 
         String actual = sut.toString();
 
-        System.assert(actual.contains(expectedId));
-        System.assert(actual.contains(expectedTitle));
-        System.assert(actual.contains(expectedDescription));
+        System.assert(actual.contains(m_dummyId));
+        System.assert(actual.contains(m_dummyTitle));
+        System.assert(actual.contains(m_dummyDescription));
     }
 }
