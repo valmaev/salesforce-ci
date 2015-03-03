@@ -1,9 +1,6 @@
 public class Program {
     public static void main() {
-        System.debug(
-            LoggingLevel.FINEST, 
-            String.format(
-                'Hello, {0}!', 
-                new String[] {System.UserInfo.getName()}));
+        Book book = new Book('000000000000000001', 'Leo Tolstoy', 'War and peace');
+        System.debug(book.toString());        
     }
 }
