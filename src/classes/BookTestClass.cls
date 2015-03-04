@@ -5,7 +5,7 @@ public class BookTestClass {
     private static final String m_dummyTitle = 'foo';
     private static final String m_dummyDescription = 'bar';
     
-    public static testmethod void Constructor_WithNullId_ShouldThrow() {
+    public static testmethod void constructor_withNullId_shouldThrow() {
         try {
             new BookBuilder().withUniqueId(null).build();
         } catch (ArgumentNullException ex) {
@@ -17,7 +17,7 @@ public class BookTestClass {
         System.assert(true == false);
     }
 
-    public static testmethod void Constructor_WithNullTitle_ShouldThrow() {
+    public static testmethod void constructor_withNullTitle_shouldThrow() {
         try {
             new BookBuilder().withTitle(null).build();
         } catch (ArgumentNullException ex) {
@@ -29,7 +29,7 @@ public class BookTestClass {
         System.assert(true == false);
     }
 
-    public static testmethod void Constructor_WithNullDescription_ShouldThrow() {
+    public static testmethod void constructor_withNullDescription_shouldThrow() {
         try {
             new BookBuilder().withDescription(null).build();
         } catch (ArgumentNullException ex) {
@@ -41,22 +41,22 @@ public class BookTestClass {
         System.assert(true == false);
     }
 
-    public static testmethod void UniqueId_Always_ShouldProperlyInitialized() {
+    public static testmethod void uniqueId_always_shouldProperlyInitialized() {
         Book sut = new BookBuilder().withUniqueId(m_dummyId).build();
         System.assertEquals(m_dummyId, sut.UniqueId);
     }
 
-    public static testmethod void Title_Always_ShouldProperlyInitialized() {
+    public static testmethod void title_always_shouldProperlyInitialized() {
         Book sut = new BookBuilder().withTitle(m_dummyTitle).build();
         System.assertEquals(m_dummyTitle, sut.Title);
     }
 
-    public static testmethod void Description_Always_ShouldProperlyInitialized() {
+    public static testmethod void description_always_shouldProperlyInitialized() {
         Book sut = new BookBuilder().withDescription(m_dummyDescription).build();
         System.assertEquals(m_dummyDescription, sut.Description);
     }
 
-    public static testmethod void ToString_Always_ShouldReturnExpectedResult() {
+    public static testmethod void toString_always_shouldReturnExpectedResult() {
         Book sut = new BookBuilder()
             .withUniqueId(m_dummyId)
             .withTitle(m_dummyTitle)
