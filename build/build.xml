@@ -1,13 +1,22 @@
 <?xml version="1.0"?>
 
-<project xmlns:sf="antlib:com.salesforce" default="CompileAndTest">
+<project xmlns:sf="sf:com.salesforce" default="CompileAndTest">
+
+    <property file="build.properties" />
+
+    <taskdef resource="com/salesforce/antlib.xml" uri="sf:com.salesforce">
+        <classpath>
+            <pathelement location="./lib/ant-salesforce.jar" />
+        </classpath>
+    </taskdef>
+
     <target name="CompileAndTest">
         <echo message="CompileAndTest" />
         <sf:deploy 
             username="${salesforce.username}" 
             password="${salesforce.password}${salesforce.securitytoken}"
             serverurl="${salesforce.serverurl}"
-            deployRoot="src"
+            deployRoot="../src"
             rollbackOnError="true"
             runAllTests="true">
         </sf:deploy>
