@@ -2,3 +2,4 @@
 *.sublime-settings
 *.sublime-workspace
 [Cc]onfig
+[Bb]uild/build.properties
