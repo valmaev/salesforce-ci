@@ -4,6 +4,10 @@ public class BookTestClass {
     private static final Id m_dummyId = '120000000000000001';
     private static final String m_dummyTitle = 'foo';
     private static final String m_dummyDescription = 'bar';
+
+    public static testmethod void ThisTest_Always_ShouldFail() {
+        System.assert(true == false);
+    }
     
     public static testmethod void Constructor_WithNullId_ShouldThrow() {
         try {
