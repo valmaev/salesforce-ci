@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<project xmlns:sf="sf:com.salesforce" default="compileAndTest">
+<project xmlns:sf="sf:com.salesforce" default="compileTestAndDeploy">
 
     <property file="build.properties" />
 
@@ -10,14 +10,23 @@
         </classpath>
     </taskdef>
 
+    <target name="compileTestAndDeploy" depends="compileAndTest, deploy" />
+
     <target name="compileAndTest">
+        <sf:compileAndTest 
+            username="${salesforce.username}" 
+            password="${salesforce.password}${salesforce.securitytoken}"
+            serverurl="${salesforce.serverurl}">
+        </sf:compileAndTest>
+    </target>
+
+    <target name="deploy">
         <sf:deploy 
             username="${salesforce.username}" 
             password="${salesforce.password}${salesforce.securitytoken}"
             serverurl="${salesforce.serverurl}"
             deployRoot="../src"
-            rollbackOnError="true"
-            runAllTests="true">
+            rollbackOnError="true">
         </sf:deploy>
     </target>
 </project>
