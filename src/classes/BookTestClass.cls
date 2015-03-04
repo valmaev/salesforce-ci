@@ -8,7 +8,7 @@ public class BookTestClass {
     public static testmethod void Constructor_WithNullId_ShouldThrow() {
         try {
             new BookBuilder().withUniqueId(null).build();
-        } catch (Exception ex) {
+        } catch (ArgumentNullException ex) {
             System.assert(ex.getMessage().contains('uniqueId'));
             System.assert(ex.getMessage().contains('can\'t be null'));
             return;
@@ -20,7 +20,7 @@ public class BookTestClass {
     public static testmethod void Constructor_WithNullTitle_ShouldThrow() {
         try {
             new BookBuilder().withTitle(null).build();
-        } catch (Exception ex) {
+        } catch (ArgumentNullException ex) {
             System.assert(ex.getMessage().contains('title'));
             System.assert(ex.getMessage().contains('can\'t be null'));
             return;
@@ -32,7 +32,7 @@ public class BookTestClass {
     public static testmethod void Constructor_WithNullDescription_ShouldThrow() {
         try {
             new BookBuilder().withDescription(null).build();
-        } catch (Exception ex) {
+        } catch (ArgumentNullException ex) {
             System.assert(ex.getMessage().contains('description'));
             System.assert(ex.getMessage().contains('can\'t be null'));
             return;
