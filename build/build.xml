@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<project xmlns:sf="sf:com.salesforce" default="CompileAndTest">
+<project xmlns:sf="sf:com.salesforce" default="compileAndTest">
 
     <property file="build.properties" />
 
@@ -10,7 +10,7 @@
         </classpath>
     </taskdef>
 
-    <target name="CompileAndTest">
+    <target name="compileAndTest">
         <sf:deploy 
             username="${salesforce.username}" 
             password="${salesforce.password}${salesforce.securitytoken}"
