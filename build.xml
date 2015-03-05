@@ -6,7 +6,7 @@
 
     <taskdef resource="com/salesforce/antlib.xml" uri="sf:com.salesforce">
         <classpath>
-            <pathelement location="./lib/ant-salesforce.jar" />
+            <pathelement location="./build/lib/ant-salesforce.jar" />
         </classpath>
     </taskdef>
 
@@ -25,7 +25,7 @@
             username="${salesforce.username}" 
             password="${salesforce.password}${salesforce.securitytoken}"
             serverurl="${salesforce.serverurl}"
-            deployRoot="../src"
+            deployRoot="src"
             rollbackOnError="true">
         </sf:deploy>
     </target>
