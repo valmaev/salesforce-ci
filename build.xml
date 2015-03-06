@@ -1,28 +1,31 @@
 <?xml version="1.0"?>
 
-<project xmlns:sf="antlib:com.salesforce" default="compileTestAndDeploy">
+<project xmlns:sf="antlib:com.salesforce" default="runAll">
 
-    <property file="build.properties" />
+    <import file="build/lib/exec-anon.xml" />
+    <import file="build/lib/cleanup.xml" />
 
     <taskdef 
         uri="antlib:com.salesforce" 
         resource="com/salesforce/antlib.xml"
         classpath="build/lib/ant-salesforce.jar" />
 
-    <target name="compileTestAndDeploy" depends="compileAndTest, deploy" />
+    <property file="build.properties" />
+
+    <target name="runAll" depends="cleanup, compileAndTest, deploy" />
 
     <target name="compileAndTest">
         <sf:compileAndTest 
-            username="${salesforce.username}" 
-            password="${salesforce.password}${salesforce.securitytoken}"
-            serverurl="${salesforce.serverurl}" />
+            username="${sf.username}" 
+            password="${sf.password}${sf.securitytoken}"
+            serverurl="${sf.serverurl}" />
     </target>
 
     <target name="deploy">
         <sf:deploy 
-            username="${salesforce.username}" 
-            password="${salesforce.password}${salesforce.securitytoken}"
-            serverurl="${salesforce.serverurl}"
+            username="${sf.username}" 
+            password="${sf.password}${sf.securitytoken}"
+            serverurl="${sf.serverurl}"
             deployRoot="src"
             rollbackOnError="true" />
     </target>
